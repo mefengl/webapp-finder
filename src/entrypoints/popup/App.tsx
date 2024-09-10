@@ -151,7 +151,7 @@ function Popup() {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button
-          onClick={() => window.open('https://github.com/mefengl/unextention/issues/new', '_blank')}
+          onClick={() => window.open('https://github.com/mefengl/unextension/issues/new', '_blank')}
           variant="outline"
         >
           <SiGithub className="mr-2 size-4" />
