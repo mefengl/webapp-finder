@@ -48,6 +48,10 @@ const tools: Tool[] = [
     name: 'Squoosh',
     url: 'https://squoosh.app',
   },
+  {
+    name: 'Favicon Extractor',
+    url: 'https://webutility.io/favicon-extractor',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
