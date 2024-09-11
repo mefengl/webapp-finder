@@ -48,6 +48,10 @@ const tools: Tool[] = [
     name: 'Squoosh',
     url: 'https://squoosh.app',
   },
+  {
+    name: 'Get Favicon',
+    url: 'http://www.getfavicon.org/',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
