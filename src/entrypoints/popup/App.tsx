@@ -50,7 +50,7 @@ const tools: Tool[] = [
   },
   {
     name: 'Favicon Extractor',
-    url: 'https://webutility.io/favicon-extractor',
+    url: 'https://www.faviconextractor.com',
   },
   // Site-specific
   {
