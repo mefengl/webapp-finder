@@ -59,6 +59,11 @@ const tools: Tool[] = [
     url: 'https://youtube-thumbnail-grabber.com',
   },
   {
+    applicableSites: ['youtube.com'],
+    name: 'YouTube Downloader',
+    url: 'https://yt1s.com',
+  },
+  {
     applicableSites: ['ui.shadcn.com'],
     description: 'Customize shadcn/ui themes',
     name: 'shadcn/ui customizer',
