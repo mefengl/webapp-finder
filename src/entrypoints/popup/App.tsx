@@ -52,6 +52,10 @@ const tools: Tool[] = [
     name: 'Favicon Extractor',
     url: 'https://www.faviconextractor.com',
   },
+  {
+    name: 'Regexr',
+    url: 'https://regexr.com',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
