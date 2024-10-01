@@ -72,6 +72,11 @@ const tools: Tool[] = [
     name: 'shadcn/ui customizer',
     url: 'https://customizer.railly.dev',
   },
+  {
+    applicableSites: ['github.com'],
+    name: 'Repo to Text',
+    url: 'https://repo2txt.simplebasedomain.com',
+  },
 ]
 
 function Popup() {
