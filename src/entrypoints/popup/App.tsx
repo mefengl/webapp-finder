@@ -77,6 +77,11 @@ const tools: Tool[] = [
     name: 'Repo to Text',
     url: 'https://repo2txt.simplebasedomain.com',
   },
+  {
+    applicableSites: ['framer.com/motion'],
+    name: 'Framer Ground',
+    url: 'https://ground.bossadizenith.me',
+  },
 ]
 
 function Popup() {
