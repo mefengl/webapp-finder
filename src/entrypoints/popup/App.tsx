@@ -55,6 +55,10 @@ const tools: Tool[] = [
     name: 'Regexr',
     url: 'https://regexr.com',
   },
+  {
+    name: 'SQLite Viewer',
+    url: 'https://sqliteviewer.app',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
