@@ -59,6 +59,11 @@ const tools: Tool[] = [
     name: 'SQLite Viewer',
     url: 'https://sqliteviewer.app',
   },
+  {
+    description: 'Download videos from YouTube, Twitter, Facebook, etc.',
+    name: 'SaveFrom.net',
+    url: 'https://savefrom.net',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
