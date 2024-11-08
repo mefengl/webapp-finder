@@ -64,6 +64,11 @@ const tools: Tool[] = [
     name: 'SaveFrom.net',
     url: 'https://savefrom.net',
   },
+  {
+    description: 'Full-featured image editor using canvas. Supports various editing features.',
+    name: 'TUI Image Editor',
+    url: 'https://ui.toast.com/tui-image-editor',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
@@ -121,7 +126,7 @@ function Popup() {
 
   function ToolItem({ tool }: { tool: Tool }) {
     return (
-      <div className="mb-2 last:mb-0">
+      <div className="last:mb-0 mb-2">
         <div className="flex items-center gap-2 text-lg">
           <a
             className="text-blue-500 underline"
@@ -185,7 +190,7 @@ function Popup() {
           onClick={() => window.open('https://github.com/mefengl/unextension/issues/new', '_blank')}
           variant="outline"
         >
-          <SiGithub className="mr-2 size-4" />
+          <SiGithub className="size-4 mr-2" />
           Suggest a Tool
         </Button>
         <Dialog>
