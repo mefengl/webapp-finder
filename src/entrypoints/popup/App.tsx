@@ -65,9 +65,9 @@ const tools: Tool[] = [
     url: 'https://savefrom.net',
   },
   {
-    description: 'Full-featured image editor using canvas. Supports various editing features.',
-    name: 'TUI Image Editor',
-    url: 'https://ui.toast.com/tui-image-editor',
+    description: 'Every tool you could want to edit images in bulk',
+    name: 'iLoveIMG',
+    url: 'https://www.iloveimg.com',
   },
   // Site-specific
   {
