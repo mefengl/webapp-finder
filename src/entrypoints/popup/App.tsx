@@ -69,6 +69,11 @@ const tools: Tool[] = [
     name: 'iLoveIMG',
     url: 'https://www.iloveimg.com',
   },
+  {
+    description: 'Create avatars for your profiles, designs, websites or apps. Piece by piece or based on a seed.',
+    name: 'DiceBear',
+    url: 'https://www.dicebear.com',
+  },
   // Site-specific
   {
     applicableSites: ['youtube.com'],
@@ -126,7 +131,7 @@ function Popup() {
 
   function ToolItem({ tool }: { tool: Tool }) {
     return (
-      <div className="last:mb-0 mb-2">
+      <div className="mb-2 last:mb-0">
         <div className="flex items-center gap-2 text-lg">
           <a
             className="text-blue-500 underline"
@@ -190,7 +195,7 @@ function Popup() {
           onClick={() => window.open('https://github.com/mefengl/unextension/issues/new', '_blank')}
           variant="outline"
         >
-          <SiGithub className="size-4 mr-2" />
+          <SiGithub className="mr-2 size-4" />
           Suggest a Tool
         </Button>
         <Dialog>
