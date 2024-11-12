@@ -72,7 +72,7 @@ const tools: Tool[] = [
   {
     description: 'Create avatars for your profiles, designs, websites or apps. Piece by piece or based on a seed.',
     name: 'DiceBear',
-    url: 'https://www.dicebear.com',
+    url: 'https://editor.dicebear.com',
   },
   // Site-specific
   {
