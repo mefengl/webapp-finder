@@ -110,15 +110,13 @@ const tools: Tool[] = [
 
 function ToolItem({ tool }: { tool: Tool }) {
   return (
-    <div className="group relative rounded-lg border p-4 transition-all hover:border-blue-500 hover:shadow-md">
-      <a
-        className="block text-lg font-medium text-blue-600 hover:text-blue-700"
-        href={tool.url}
-        rel="noopener noreferrer"
-        target="_blank"
-      >
+    <div
+      className="group relative cursor-pointer rounded-lg border p-4 transition-all hover:border-blue-500 hover:shadow-md"
+      onClick={() => window.open(tool.url, '_blank')}
+    >
+      <div className="block text-lg font-medium text-blue-600 group-hover:text-blue-700">
         {tool.name}
-      </a>
+      </div>
       {tool.description && (
         <p className="mt-2 line-clamp-2 text-sm text-gray-600">{tool.description}</p>
       )}
