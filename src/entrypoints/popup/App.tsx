@@ -40,16 +40,11 @@ interface Tool {
 }
 
 const tools: Tool[] = [
-  // General
+  // General - Most Frequently Used
   {
-    description: 'Edit, convert, e-sign and manage PDF files online',
-    name: 'Sejda PDF',
-    url: 'https://www.sejda.com',
-  },
-  {
-    description: 'Cut, edit and merge audio files online',
-    name: 'MP3Cut',
-    url: 'https://mp3cut.net',
+    description: 'Download videos from YouTube, Twitter, Facebook, etc.',
+    name: 'SaveFrom.net',
+    url: 'https://savefrom.net',
   },
   {
     description: 'Compress images with ease',
@@ -57,31 +52,9 @@ const tools: Tool[] = [
     url: 'https://squoosh.app',
   },
   {
-    description: 'Visual encyclopedia of exercises, muscles, and stretches',
-    name: 'MuscleWiki',
-    url: 'https://musclewiki.com',
-  },
-  {
-    name: 'Favicon Extractor',
-    url: 'https://www.faviconextractor.com',
-  },
-  {
-    name: 'Regexr',
-    url: 'https://regexr.com',
-  },
-  {
-    description: 'Identify fonts from images',
-    name: 'WhatTheFont',
-    url: 'https://www.myfonts.com/pages/whatthefont',
-  },
-  {
-    name: 'SQLite Viewer',
-    url: 'https://sqliteviewer.app',
-  },
-  {
-    description: 'Download videos from YouTube, Twitter, Facebook, etc.',
-    name: 'SaveFrom.net',
-    url: 'https://savefrom.net',
+    description: 'Edit, convert, e-sign and manage PDF files online',
+    name: 'Sejda PDF',
+    url: 'https://www.sejda.com',
   },
   {
     description: 'Every tool you could want to edit images in bulk',
@@ -89,31 +62,58 @@ const tools: Tool[] = [
     url: 'https://www.iloveimg.com',
   },
   {
+    name: 'Regexr',
+    url: 'https://regexr.com',
+  },
+  {
+    description: 'Cut, edit and merge audio files online',
+    name: 'MP3Cut',
+    url: 'https://mp3cut.net',
+  },
+  {
+    name: 'SQLite Viewer',
+    url: 'https://sqliteviewer.app',
+  },
+  {
+    name: 'Favicon Extractor',
+    url: 'https://www.faviconextractor.com',
+  },
+  {
+    description: 'Identify fonts from images',
+    name: 'WhatTheFont',
+    url: 'https://www.myfonts.com/pages/whatthefont',
+  },
+  {
     description: 'Create avatars for your profiles, designs, websites or apps. Piece by piece or based on a seed.',
     name: 'DiceBear',
     url: 'https://editor.dicebear.com',
   },
-  // Site-specific
   {
-    applicableSites: ['youtube.com'],
-    name: 'Get YouTube Thumbnail',
-    url: 'https://youtube-thumbnail-grabber.com',
+    description: 'Visual encyclopedia of exercises, muscles, and stretches',
+    name: 'MuscleWiki',
+    url: 'https://musclewiki.com',
   },
+  // Site-specific - Most Frequently Used
   {
     applicableSites: ['youtube.com'],
     name: 'YouTube Downloader',
     url: 'https://yt1s.com',
   },
   {
-    applicableSites: ['ui.shadcn.com'],
-    description: 'Customize shadcn/ui themes',
-    name: 'shadcn/ui customizer',
-    url: 'https://customizer.railly.dev',
+    applicableSites: ['youtube.com'],
+    name: 'Get YouTube Thumbnail',
+    url: 'https://youtube-thumbnail-grabber.com',
   },
   {
     applicableSites: ['github.com'],
     name: 'Repo to Text',
     url: 'https://repo2txt.simplebasedomain.com',
+  },
+  {
+    applicableSites: ['ui.shadcn.com'],
+    description: 'Customize shadcn/ui themes',
+    name: 'shadcn/ui customizer',
+    url: 'https://customizer.railly.dev',
   },
   {
     applicableSites: ['framer.com/motion'],
