@@ -42,6 +42,11 @@ interface Tool {
 const tools: Tool[] = [
   // General
   {
+    description: 'Cut, edit and merge audio files online',
+    name: 'MP3Cut',
+    url: 'https://mp3cut.net',
+  },
+  {
     description: 'Compress images with ease',
     name: 'Squoosh',
     url: 'https://squoosh.app',
