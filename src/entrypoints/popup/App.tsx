@@ -108,6 +108,33 @@ const tools: Tool[] = [
   },
 ]
 
+function ToolItem({ tool }: { tool: Tool }) {
+  return (
+    <div className="group relative rounded-lg border p-4 transition-all hover:border-blue-500 hover:shadow-md">
+      <a
+        className="block text-lg font-medium text-blue-600 hover:text-blue-700"
+        href={tool.url}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {tool.name}
+      </a>
+      {tool.description && (
+        <p className="mt-2 line-clamp-2 text-sm text-gray-600">{tool.description}</p>
+      )}
+      {tool.applicableSites && (
+        <div className="mt-2 flex flex-wrap gap-1">
+          {tool.applicableSites.map(site => (
+            <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700" key={site}>
+              {site}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function Popup() {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const url = useActiveTabUrl()
@@ -134,33 +161,13 @@ function Popup() {
     )
   }, [searchTerm, url])
 
-  function ToolItem({ tool }: { tool: Tool }) {
-    return (
-      <div className="mb-2 last:mb-0">
-        <div className="flex items-center gap-2 text-lg">
-          <a
-            className="text-blue-500 underline"
-            href={tool.url}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {tool.name}
-          </a>
-          {tool.description && (
-            <p className="mt-1 text-sm text-gray-500">{tool.description}</p>
-          )}
-        </div>
-      </div>
-    )
-  }
-
   return (
     <Card className="flex h-[600px] w-[800px] flex-col overflow-hidden rounded-none">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <div className="relative">
           <Search className="absolute left-2 top-2.5 size-4 text-muted-foreground" />
           <Input
-            className="pl-8"
+            className="pl-8 transition-all focus-visible:ring-2 focus-visible:ring-blue-500"
             onChange={e => setSearchTerm(e.target.value)}
             placeholder="Search tools..."
             type="text"
@@ -169,28 +176,29 @@ function Popup() {
         </div>
       </CardHeader>
       <CardContent className="flex-1 pb-4">
-        <ScrollArea className="h-[400px] rounded-md border">
-          <div className="p-4">
+        <ScrollArea className="h-[400px]">
+          <div className="space-y-6 p-4">
             {matchedTools.length > 0 && (
-              <>
-                <h3 className="mb-2 font-semibold">Matched Tools</h3>
-                {matchedTools.map(tool => (
-                  <ToolItem key={tool.name} tool={tool} />
-                ))}
-              </>
-            )}
-            {matchedTools.length > 0 && unmatchedTools.length > 0 && (
-              <Separator className="my-4" />
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-gray-900">Matched Tools</h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {matchedTools.map(tool => (
+                    <ToolItem key={tool.name} tool={tool} />
+                  ))}
+                </div>
+              </div>
             )}
             {unmatchedTools.length > 0 && (
-              <>
-                {matchedTools.length > 0 && (
-                  <h3 className="mb-2 font-semibold">Other Tools</h3>
-                )}
-                {unmatchedTools.map(tool => (
-                  <ToolItem key={tool.name} tool={tool} />
-                ))}
-              </>
+              <div>
+                <h3 className="mb-3 text-lg font-semibold text-gray-900">
+                  {matchedTools.length > 0 ? 'Other Tools' : 'All Tools'}
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  {unmatchedTools.map(tool => (
+                    <ToolItem key={tool.name} tool={tool} />
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         </ScrollArea>
