@@ -56,6 +56,11 @@ const tools: Tool[] = [
     url: 'https://regexr.com',
   },
   {
+    description: 'Identify fonts from images',
+    name: 'WhatTheFont',
+    url: 'https://www.myfonts.com/pages/whatthefont',
+  },
+  {
     name: 'SQLite Viewer',
     url: 'https://sqliteviewer.app',
   },
