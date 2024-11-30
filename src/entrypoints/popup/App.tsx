@@ -93,6 +93,11 @@ const tools: Tool[] = [
     name: 'MuscleWiki',
     url: 'https://musclewiki.com',
   },
+  {
+    description: 'Quick reference for Tailwind CSS classes and utilities',
+    name: 'Tailwind CSS Cheatsheet',
+    url: 'https://umeshmk.github.io/Tailwindcss-cheatsheet/',
+  },
   // Site-specific - Most Frequently Used
   {
     applicableSites: ['youtube.com'],
