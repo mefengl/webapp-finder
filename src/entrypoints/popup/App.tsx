@@ -10,7 +10,6 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/components/ui/separator'
 import { Search } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
