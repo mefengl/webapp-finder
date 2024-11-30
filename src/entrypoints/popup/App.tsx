@@ -42,6 +42,11 @@ interface Tool {
 const tools: Tool[] = [
   // General
   {
+    description: 'Edit, convert, e-sign and manage PDF files online',
+    name: 'Sejda PDF',
+    url: 'https://www.sejda.com',
+  },
+  {
     description: 'Cut, edit and merge audio files online',
     name: 'MP3Cut',
     url: 'https://mp3cut.net',
