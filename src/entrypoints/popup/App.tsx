@@ -47,6 +47,11 @@ const tools: Tool[] = [
     url: 'https://squoosh.app',
   },
   {
+    description: 'Visual encyclopedia of exercises, muscles, and stretches',
+    name: 'MuscleWiki',
+    url: 'https://musclewiki.com',
+  },
+  {
     name: 'Favicon Extractor',
     url: 'https://www.faviconextractor.com',
   },
