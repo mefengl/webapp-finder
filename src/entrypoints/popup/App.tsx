@@ -40,7 +40,7 @@ interface Tool {
 }
 
 const tools: Tool[] = [
-  // General - Most Frequently Used
+  // General - Sorted by Frequency
   {
     description: 'Download videos from YouTube, Twitter, Facebook, etc.',
     name: 'SaveFrom.net',
@@ -98,7 +98,12 @@ const tools: Tool[] = [
     name: 'Tailwind CSS Cheatsheet',
     url: 'https://umeshmk.github.io/Tailwindcss-cheatsheet/',
   },
-  // Site-specific - Most Frequently Used
+  {
+    description: 'Stream torrents directly in your browser',
+    name: 'Webtor',
+    url: 'https://webtor.io',
+  },
+  // Site-specific - Sorted by Frequency
   {
     applicableSites: ['youtube.com'],
     name: 'YouTube Downloader',
