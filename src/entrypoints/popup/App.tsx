@@ -99,6 +99,11 @@ const tools: Tool[] = [
     url: 'https://umeshmk.github.io/Tailwindcss-cheatsheet/',
   },
   {
+    description: 'Download high-quality movies',
+    name: 'YTS Movies',
+    url: 'https://yts.mx',
+  },
+  {
     description: 'Stream torrents directly in your browser',
     name: 'Webtor',
     url: 'https://webtor.io',
