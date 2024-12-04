@@ -1,7 +1,7 @@
 {
   "name": "UnExtension: An extension to help you use fewer extensions",
   "type": "module",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "private": true,
   "description": "No need to install extensions for every small task when a web app can do it too.",
   "scripts": {
