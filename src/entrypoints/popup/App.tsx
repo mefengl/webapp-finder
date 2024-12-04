@@ -47,6 +47,11 @@ const tools: Tool[] = [
     url: 'https://savefrom.net',
   },
   {
+    description: 'Find and download subtitles for movies and TV shows',
+    name: 'SubtitleCat',
+    url: 'https://www.subtitlecat.com',
+  },
+  {
     description: 'Compress images with ease',
     name: 'Squoosh',
     url: 'https://squoosh.app',
