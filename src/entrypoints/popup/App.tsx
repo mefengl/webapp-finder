@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import {
   Dialog,
   DialogContent,
@@ -9,7 +8,6 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { ScrollArea } from '@/components/ui/scroll-area'
 import { Search } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
@@ -34,7 +32,7 @@ function useActiveTabUrl(): string {
 
 interface Tool {
   applicableSites?: string[]
-  description?: string
+  category?: string
   name: string
   url: string
 }
@@ -42,127 +40,131 @@ interface Tool {
 const tools: Tool[] = [
   // General - Sorted by Frequency
   {
-    description: 'Download videos from YouTube, Twitter, Facebook, etc.',
-    name: 'SaveFrom.net',
+    category: 'General',
+    name: 'Universal Video Downloader',
     url: 'https://savefrom.net',
   },
   {
-    description: 'Find and download subtitles for movies and TV shows',
-    name: 'SubtitleCat',
+    category: 'General',
+    name: 'Movie Subtitle Finder',
     url: 'https://www.subtitlecat.com',
   },
   {
-    description: 'Compress images with ease',
-    name: 'Squoosh',
+    category: 'General',
+    name: 'Image Compression Tool',
     url: 'https://squoosh.app',
   },
   {
-    description: 'Edit, convert, e-sign and manage PDF files online',
-    name: 'Sejda PDF',
+    category: 'General',
+    name: 'PDF Editor & Converter',
     url: 'https://www.sejda.com',
   },
   {
-    description: 'Every tool you could want to edit images in bulk',
-    name: 'iLoveIMG',
+    category: 'General',
+    name: 'Bulk Image Editor',
     url: 'https://www.iloveimg.com',
   },
   {
-    name: 'Regexr',
+    category: 'General',
+    name: 'Regex Tester & Debugger',
     url: 'https://regexr.com',
   },
   {
-    description: 'Cut, edit and merge audio files online',
-    name: 'MP3Cut',
+    category: 'General',
+    name: 'Online Audio Editor',
     url: 'https://mp3cut.net',
   },
   {
-    name: 'SQLite Viewer',
+    category: 'General',
+    name: 'SQLite Browser Online',
     url: 'https://sqliteviewer.app',
   },
   {
-    name: 'Favicon Extractor',
+    category: 'General',
+    name: 'Website Icon Extractor',
     url: 'https://www.faviconextractor.com',
   },
   {
-    description: 'Identify fonts from images',
-    name: 'WhatTheFont',
+    category: 'General',
+    name: 'Font Identifier Tool',
     url: 'https://www.myfonts.com/pages/whatthefont',
   },
   {
-    description: 'Create avatars for your profiles, designs, websites or apps. Piece by piece or based on a seed.',
-    name: 'DiceBear',
+    category: 'General',
+    name: 'Avatar Generator API',
     url: 'https://editor.dicebear.com',
   },
   {
-    description: 'Visual encyclopedia of exercises, muscles, and stretches',
-    name: 'MuscleWiki',
+    category: 'General',
+    name: '3D Exercise Guide',
     url: 'https://musclewiki.com',
   },
   {
-    description: 'Quick reference for Tailwind CSS classes and utilities',
-    name: 'Tailwind CSS Cheatsheet',
+    category: 'General',
+    name: 'Tailwind CSS Reference',
     url: 'https://umeshmk.github.io/Tailwindcss-cheatsheet/',
   },
   {
-    description: 'Download high-quality movies',
-    name: 'YTS Movies',
+    category: 'General',
+    name: 'HD Movie Download Hub',
     url: 'https://yts.mx',
   },
   {
-    description: 'Stream torrents directly in your browser',
-    name: 'Webtor',
+    category: 'General',
+    name: 'Browser Torrent Streamer',
     url: 'https://webtor.io',
   },
-  // Site-specific - Sorted by Frequency
+  // Grouped by platform/site
   {
     applicableSites: ['youtube.com'],
-    name: 'YouTube Downloader',
+    category: 'YouTube', // Changed from Site-specific
+    name: 'Video Grabber',
     url: 'https://yt1s.com',
   },
   {
     applicableSites: ['youtube.com'],
-    name: 'Get YouTube Thumbnail',
+    category: 'YouTube', // Changed from Site-specific
+    name: 'Thumbnail Finder',
     url: 'https://youtube-thumbnail-grabber.com',
   },
   {
     applicableSites: ['github.com'],
-    name: 'Repo to Text',
+    category: 'GitHub', // Changed from Site-specific
+    name: 'Repo Extractor',
     url: 'https://repo2txt.simplebasedomain.com',
   },
   {
     applicableSites: ['ui.shadcn.com'],
-    description: 'Customize shadcn/ui themes',
-    name: 'shadcn/ui customizer',
+    category: 'Shadcn', // Changed from Site-specific
+    name: 'Theme Designer',
     url: 'https://customizer.railly.dev',
   },
   {
     applicableSites: ['framer.com/motion'],
-    name: 'Framer Ground',
+    category: 'Framer', // Changed from Site-specific
+    name: 'Motion Playground',
     url: 'https://ground.bossadizenith.me',
   },
 ]
 
+function extractDomain(url: string): string {
+  try {
+    const domain = new URL(url).hostname.replace('www.', '')
+    return domain
+  }
+  catch {
+    return ''
+  }
+}
+
 function ToolItem({ tool }: { tool: Tool }) {
   return (
     <div
-      className="group relative cursor-pointer rounded-lg border p-4 transition-all hover:border-blue-500 hover:shadow-md"
+      className="flex cursor-pointer items-center justify-between border-b px-3 py-2 hover:bg-gray-50"
       onClick={() => window.open(tool.url, '_blank')}
     >
-      <div className="block text-lg font-medium text-blue-600 group-hover:text-blue-700">
-        {tool.name}
-      </div>
-      {tool.description && (
-        <p className="mt-2 line-clamp-2 text-sm text-gray-600">{tool.description}</p>
-      )}
-      {tool.applicableSites && (
-        <div className="mt-2 flex flex-wrap gap-1">
-          {tool.applicableSites.map(site => (
-            <span className="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-700" key={site}>
-              {site}
-            </span>
-          ))}
-        </div>
-      )}
+      <span className="text-sm text-gray-900">{tool.name}</span>
+      <span className="text-xs text-gray-500">{extractDomain(tool.url)}</span>
     </div>
   )
 }
@@ -171,77 +173,61 @@ function Popup() {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const url = useActiveTabUrl()
 
-  const { matchedTools, unmatchedTools } = useMemo(() => {
+  const groupedTools = useMemo(() => {
     const filtered = tools.filter((tool) => {
       const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase())
-        || (tool.description && tool.description.toLowerCase().includes(searchTerm.toLowerCase()))
       return matchesSearch
     })
 
-    return filtered.reduce(
-      (acc, tool) => {
-        const isMatched = tool.applicableSites?.some(site => url.includes(site)) || false
-        if (isMatched) {
-          acc.matchedTools.push(tool)
-        }
-        else {
-          acc.unmatchedTools.push(tool)
-        }
-        return acc
-      },
-      { matchedTools: [], unmatchedTools: [] } as { matchedTools: Tool[], unmatchedTools: Tool[] },
-    )
+    return filtered.reduce((acc, tool) => {
+      const category = tool.applicableSites?.some(site => url.includes(site))
+        ? 'Matched Tools'
+        : (tool.category || 'Other')
+      if (!acc[category])
+        acc[category] = []
+      acc[category].push(tool)
+      return acc
+    }, {} as Record<string, Tool[]>)
   }, [searchTerm, url])
 
   return (
-    <Card className="flex h-[600px] w-[800px] flex-col overflow-hidden rounded-none">
-      <CardHeader className="pb-3">
+    <div className="flex size-[600px] flex-col">
+      <div className="border-b px-3 py-2">
         <div className="relative">
-          <Search className="absolute left-2 top-2.5 size-4 text-muted-foreground" />
+          <Search className="absolute left-2 top-1.5 size-4 text-gray-400" />
           <Input
-            className="pl-8 transition-all focus-visible:ring-2 focus-visible:ring-blue-500"
+            className="h-8 border-0 pl-8 ring-1 ring-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500"
             onChange={e => setSearchTerm(e.target.value)}
             placeholder="Search tools..."
             type="text"
             value={searchTerm}
           />
         </div>
-      </CardHeader>
-      <CardContent className="flex-1 pb-4">
-        <ScrollArea className="h-[400px]">
-          <div className="space-y-6 p-4">
-            {matchedTools.length > 0 && (
-              <div>
-                <h3 className="mb-3 text-lg font-semibold text-gray-900">Matched Tools</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {matchedTools.map(tool => (
-                    <ToolItem key={tool.name} tool={tool} />
-                  ))}
-                </div>
-              </div>
-            )}
-            {unmatchedTools.length > 0 && (
-              <div>
-                <h3 className="mb-3 text-lg font-semibold text-gray-900">
-                  {matchedTools.length > 0 ? 'Other Tools' : 'All Tools'}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {unmatchedTools.map(tool => (
-                    <ToolItem key={tool.name} tool={tool} />
-                  ))}
-                </div>
-              </div>
-            )}
+      </div>
+
+      <div className="flex-1 overflow-auto">
+        {Object.entries(groupedTools).map(([category, items]) => (
+          <div key={category}>
+            <div className="sticky top-0 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-500">
+              {category}
+            </div>
+            <div className="grid grid-cols-2 divide-x">
+              {items.map(tool => (
+                <ToolItem key={tool.name} tool={tool} />
+              ))}
+            </div>
           </div>
-        </ScrollArea>
-      </CardContent>
-      <CardFooter className="flex justify-between">
+        ))}
+      </div>
+
+      <div className="flex justify-between border-t px-3 py-2">
         <Button
           onClick={() => window.open('https://github.com/mefengl/unextension/issues/new', '_blank')}
+          size="sm"
           variant="outline"
         >
-          <SiGithub className="mr-2 size-4" />
-          Suggest a Tool
+          <SiGithub className="mr-1 size-3" />
+          Suggest
         </Button>
         <Dialog>
           <DialogTrigger asChild>
@@ -279,8 +265,8 @@ function Popup() {
             </DialogHeader>
           </DialogContent>
         </Dialog>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   )
 }
 
