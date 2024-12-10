@@ -96,6 +96,11 @@ const tools: Tool[] = [
   },
   {
     category: 'General',
+    name: 'App Icon Generator',
+    url: 'https://makeappicon.com',
+  },
+  {
+    category: 'General',
     name: '3D Exercise Guide',
     url: 'https://musclewiki.com',
   },
