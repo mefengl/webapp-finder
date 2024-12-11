@@ -1,5 +1,5 @@
 {
-  "name": "WebApp Finder",
+  "name": "WebApp Finder: Extension tool without extensions",
   "type": "module",
   "version": "3.0.4",
   "private": true,
