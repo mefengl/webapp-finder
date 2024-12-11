@@ -240,8 +240,15 @@ function Popup() {
     ]
 
     const filtered = allTools.filter((tool) => {
-      const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase())
-      return matchesSearch
+      if (!searchTerm)
+        return true
+      const searchTermLower = searchTerm.toLowerCase()
+      return (
+        tool.name.toLowerCase().includes(searchTermLower)
+        || tool.url.toLowerCase().includes(searchTermLower)
+        || tool.category?.toLowerCase().includes(searchTermLower)
+        || extractDomain(tool.url).toLowerCase().includes(searchTermLower)
+      )
     })
 
     return filtered.reduce((acc, tool) => {
