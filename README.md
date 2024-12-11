@@ -1,3 +1,3 @@
-# UnExtension
+# WebApp Finder
 
-https://chromewebstore.google.com/detail/unextension-an-extension/habbceidmhbmcdckefldkdblimdampia
+https://chromewebstore.google.com/detail/habbceidmhbmcdckefldkdblimdampia
