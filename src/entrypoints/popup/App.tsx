@@ -8,9 +8,13 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { Search } from 'lucide-react'
+import { PlusCircle, Search } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { SiGithub } from 'react-icons/si'
+
+import type { UserTool } from './storage'
+
+import { userTools } from './storage'
 
 function useActiveTabUrl(): string {
   const [url, setUrl] = useState<string>('')
@@ -169,12 +173,73 @@ function ToolItem({ tool }: { tool: Tool }) {
   )
 }
 
+function AddToolDialog({ url }: { url: string }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [name, setName] = useState('')
+  const [category, setCategory] = useState('')
+
+  const handleSubmit = async () => {
+    const tools = await userTools.getValue()
+    await userTools.setValue([...tools, { category, name, url }])
+    setIsOpen(false)
+    setName('')
+    setCategory('')
+  }
+
+  return (
+    <Dialog onOpenChange={setIsOpen} open={isOpen}>
+      <DialogTrigger asChild>
+        <Button size="sm" variant="outline">
+          <PlusCircle className="mr-1 size-3" />
+          Add Current Site
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Add Tool</DialogTitle>
+          <DialogDescription>
+            Add current site as a tool
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid gap-2">
+            <Input
+              onChange={e => setName(e.target.value)}
+              placeholder="Tool name"
+              value={name}
+            />
+            <Input
+              onChange={e => setCategory(e.target.value)}
+              placeholder="Category (optional)"
+              value={category}
+            />
+          </div>
+          <Button disabled={!name} onClick={handleSubmit}>Add</Button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
 function Popup() {
   const [searchTerm, setSearchTerm] = useState<string>('')
   const url = useActiveTabUrl()
+  const [userDefinedTools, setUserDefinedTools] = useState<UserTool[]>([])
+
+  useEffect(() => {
+    userTools.getValue().then(setUserDefinedTools)
+    return userTools.watch((tools) => {
+      setUserDefinedTools(tools)
+    })
+  }, [])
 
   const groupedTools = useMemo(() => {
-    const filtered = tools.filter((tool) => {
+    const allTools = [
+      ...tools,
+      ...userDefinedTools.map(t => ({ ...t, isUserDefined: true })),
+    ]
+
+    const filtered = allTools.filter((tool) => {
       const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase())
       return matchesSearch
     })
@@ -188,20 +253,23 @@ function Popup() {
       acc[category].push(tool)
       return acc
     }, {} as Record<string, Tool[]>)
-  }, [searchTerm, url])
+  }, [searchTerm, url, userDefinedTools])
 
   return (
     <div className="flex size-[600px] flex-col">
       <div className="border-b px-3 py-2">
-        <div className="relative">
-          <Search className="absolute left-2 top-1.5 size-4 text-gray-400" />
-          <Input
-            className="h-8 border-0 pl-8 ring-1 ring-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500"
-            onChange={e => setSearchTerm(e.target.value)}
-            placeholder="Search tools..."
-            type="text"
-            value={searchTerm}
-          />
+        <div className="flex items-center justify-between gap-2">
+          <div className="relative flex-1">
+            <Search className="absolute left-2 top-1.5 size-4 text-gray-400" />
+            <Input
+              className="h-8 border-0 pl-8 ring-1 ring-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500"
+              onChange={e => setSearchTerm(e.target.value)}
+              placeholder="Search tools..."
+              type="text"
+              value={searchTerm}
+            />
+          </div>
+          <AddToolDialog url={url} />
         </div>
       </div>
 
