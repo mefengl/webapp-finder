@@ -327,7 +327,7 @@ function Popup() {
                 <div className="mb-4 text-xs text-gray-500">
                   Credits:
                   <br />
-                  Icons from
+                  Logo from
                   {' '}
                   <a className="underline" href="https://heyzoish.gumroad.com/l/notionists" rel="noopener noreferrer" target="_blank">Notionists</a>
                   {' '}
