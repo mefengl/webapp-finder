@@ -1,7 +1,7 @@
 {
   "name": "WebApp Finder",
   "type": "module",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "private": true,
   "description": "No need to install extensions for every small task when a web app can do it too.",
   "scripts": {
