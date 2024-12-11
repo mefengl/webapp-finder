@@ -8,6 +8,9 @@ export default defineConfig({
       'storage',
     ],
   },
-  modules: ['@wxt-dev/module-react'],
+  modules: [
+    '@wxt-dev/auto-icons',
+    '@wxt-dev/module-react',
+  ],
   srcDir: 'src',
 })
