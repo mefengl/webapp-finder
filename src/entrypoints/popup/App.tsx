@@ -327,14 +327,17 @@ function Popup() {
                 <div className="mb-4 text-xs text-gray-500">
                   Credits:
                   <br />
-                  Logo based on `mage:inbox-star-fill` from
+                  Icons from
                   {' '}
-                  <a className="underline" href="https://github.com/Mage-Icons/mage-icons" rel="noopener noreferrer" target="_blank">Mage Icons</a>
-                  , licensed under the
+                  <a className="underline" href="https://heyzoish.gumroad.com/l/notionists" rel="noopener noreferrer" target="_blank">Notionists</a>
                   {' '}
-                  <a className="underline" href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener noreferrer" target="_blank">Apache 2.0</a>
+                  by
                   {' '}
-                  license.
+                  <a className="underline" href="https://bio.link/heyzoish" rel="noopener noreferrer" target="_blank">Zoish</a>
+                  , licensed under
+                  {' '}
+                  <a className="underline" href="https://creativecommons.org/publicdomain/zero/1.0/" rel="noopener noreferrer" target="_blank">CC0 1.0</a>
+                  . Remix of the original.
                 </div>
               </DialogDescription>
             </DialogHeader>
