@@ -118,6 +118,11 @@ const tools: Tool[] = [
     name: 'Browser Torrent Streamer',
     url: 'https://webtor.io',
   },
+  {
+    category: 'General',
+    name: 'Cobalt Media Downloader',
+    url: 'https://cobalt.tools/',
+  },
   // Grouped by platform/site
   {
     applicableSites: ['youtube.com'],
