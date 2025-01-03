@@ -139,6 +139,12 @@ const tools: Tool[] = [
   {
     applicableSites: ['github.com'],
     category: 'GitHub', // Changed from Site-specific
+    name: 'Repository Diagram Visualizer',
+    url: 'https://gitdiagram.com',
+  },
+  {
+    applicableSites: ['github.com'],
+    category: 'GitHub', // Changed from Site-specific
     name: 'Repo Extractor',
     url: 'https://repo2txt.simplebasedomain.com',
   },
