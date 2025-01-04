@@ -160,6 +160,12 @@ const tools: Tool[] = [
     name: 'Motion Playground',
     url: 'https://ground.bossadizenith.me',
   },
+  {
+    applicableSites: ['twitter.com', 'x.com'],
+    category: 'X (Twitter)',
+    name: 'Profile Styler',
+    url: 'https://x-styler.vercel.app',
+  },
 ]
 
 function extractDomain(url: string): string {
