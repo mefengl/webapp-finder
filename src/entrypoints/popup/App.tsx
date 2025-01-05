@@ -166,6 +166,11 @@ const tools: Tool[] = [
     name: 'Profile Styler',
     url: 'https://x-styler.vercel.app',
   },
+  {
+    category: 'AI Tools',
+    name: 'MiniPerplx: AI search',
+    url: 'https://mplx.run',
+  },
 ]
 
 function extractDomain(url: string): string {
