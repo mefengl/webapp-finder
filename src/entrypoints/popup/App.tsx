@@ -45,11 +45,6 @@ const tools: Tool[] = [
   // General - Sorted by Frequency
   {
     category: 'General',
-    name: 'Universal Video Downloader',
-    url: 'https://savefrom.net',
-  },
-  {
-    category: 'General',
     name: 'Movie Subtitle Finder',
     url: 'https://www.subtitlecat.com',
   },
@@ -110,21 +105,10 @@ const tools: Tool[] = [
   },
   {
     category: 'General',
-    name: 'HD Movie Download Hub',
-    url: 'https://yts.mx',
-  },
-  {
-    category: 'General',
     name: 'Browser Torrent Streamer',
     url: 'https://webtor.io',
   },
   // Grouped by platform/site
-  {
-    applicableSites: ['youtube.com'],
-    category: 'YouTube', // Changed from Site-specific
-    name: 'Video Grabber',
-    url: 'https://yt1s.com',
-  },
   {
     applicableSites: ['youtube.com'],
     category: 'YouTube', // Changed from Site-specific
